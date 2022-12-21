@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../utils/constants/route_constants.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -9,6 +11,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.login),
+            onPressed: () {
+              context.goNamed("/${RouteConstants.login}");
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -22,14 +32,14 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.goNamed("movie");
+                context.goNamed(RouteConstants.movie);
               },
               child: const Text('Movies'),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.goNamed("song");
+                context.goNamed(RouteConstants.song);
               },
               child: const Text('Songs'),
             ),

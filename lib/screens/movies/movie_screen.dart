@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_go_router/data/model/movie.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../utils/constants/route_constants.dart';
+
 class MovieScreen extends StatelessWidget {
   const MovieScreen({super.key});
 
@@ -21,8 +23,8 @@ class MovieScreen extends StatelessWidget {
             subtitle: Text(movies[index].details),
             leading: Image.network(movies[index].image),
             onTap: () {
-              context
-                  .goNamed("movie_details", params: {"id": movies[index].id});
+              context.goNamed(RouteConstants.movieDetails,
+                  params: {"id": movies[index].id});
             },
           );
         },
