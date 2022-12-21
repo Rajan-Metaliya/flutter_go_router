@@ -1,9 +1,15 @@
 class RouteConstants {
-  static const String home = '/';
+  static const String splash = '/';
 
-  static const String login = '/login';
+  static const String home = 'home';
 
-  static const String movie = '/movie';
+  static const String login = 'login';
 
-  static const String movieDetails = '/movie/:id';
+  static const String movie = 'movie';
+
+  static const String movieDetails = 'movie_details/:id';
+
+  static const String song = 'song';
+
+  static const String songDetails = 'song_details/:id';
 }

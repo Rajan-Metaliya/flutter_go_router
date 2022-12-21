@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_go_router/data/model/song.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_go_router/utils/routes/routes.dart';
 
 class SongScreen extends StatelessWidget {
   const SongScreen({super.key});
@@ -20,7 +20,7 @@ class SongScreen extends StatelessWidget {
             subtitle: Text(songs[index].artist),
             leading: Image.network(songs[index].image),
             onTap: () {
-              context.goNamed("song_details", params: {"id": songs[index].id});
+              SongDetailRoute(id: songs[index].id).go(context);
             },
           );
         },

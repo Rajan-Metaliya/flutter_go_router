@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_go_router/utils/routes/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,14 +22,14 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.goNamed("movie");
+                MovieRoute().go(context);
               },
               child: const Text('Movies'),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.goNamed("song");
+                SongRoute().go(context);
               },
               child: const Text('Songs'),
             ),
