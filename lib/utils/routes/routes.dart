@@ -1,3 +1,4 @@
+import 'package:flutter_go_router/screens/error/error_screen.dart';
 import 'package:flutter_go_router/screens/home/home_screen.dart';
 import 'package:flutter_go_router/screens/songs/song_detail_screen.dart';
 import 'package:flutter_go_router/screens/songs/song_screen.dart';
@@ -18,7 +19,7 @@ final router = GoRouter(
     ),
     GoRoute(
         path: "/${RouteConstants.home}",
-        name: "/${RouteConstants.home}",
+        name: RouteConstants.home,
         builder: (context, state) => const HomeScreen(),
         routes: [
           GoRoute(
@@ -52,8 +53,9 @@ final router = GoRouter(
         ]),
     GoRoute(
       path: "/${RouteConstants.login}",
-      name: "/${RouteConstants.login}",
+      name: RouteConstants.login,
       builder: (context, state) => const LoginScreen(),
     ),
   ],
+  errorBuilder: (context, state) => const ErrorScreen(),
 );
