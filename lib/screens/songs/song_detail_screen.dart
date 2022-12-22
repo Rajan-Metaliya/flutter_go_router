@@ -20,7 +20,6 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     song = songs.firstWhere((element) => element.id == widget.id);
@@ -32,14 +31,12 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
       appBar: AppBar(
         title: Text(song.title),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Image.network(song.image),
-            Text(song.title),
-            Text(song.artist),
-          ],
-        ),
+      body: Column(
+        children: [
+          Image.network(song.image),
+          Text(song.title),
+          Text(song.artist),
+        ],
       ),
     );
   }

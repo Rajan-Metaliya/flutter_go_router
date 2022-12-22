@@ -13,21 +13,33 @@ class SongScreen extends StatelessWidget {
         title: const Text('Songs'),
       ),
       // list of songs
-      body: ListView.builder(
-        itemCount: songs.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(songs[index].title),
-            subtitle: Text(songs[index].artist),
-            leading: Image.network(songs[index].image),
-            onTap: () {
-              context.goNamed(
-                RouteConstants.songDetails,
-                params: {"id": songs[index].id},
-              );
+      body: Column(
+        children: [
+          MaterialButton(
+            onPressed: () {
+              context.pop();
             },
-          );
-        },
+            child: const Text("Back to Home"),
+          ),
+          Flexible(
+            child: ListView.builder(
+              itemCount: songs.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(songs[index].title),
+                  subtitle: Text(songs[index].artist),
+                  leading: Image.network(songs[index].image),
+                  onTap: () {
+                    context.goNamed(
+                      RouteConstants.songDetails,
+                      params: {"id": songs[index].id},
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

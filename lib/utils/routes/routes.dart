@@ -5,12 +5,15 @@ import 'package:flutter_go_router/screens/songs/song_screen.dart';
 import 'package:flutter_go_router/utils/constants/route_constants.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../data/model/user.dart';
 import '../../screens/login/login_screen.dart';
 import '../../screens/movies/movie_details_screen.dart';
 import '../../screens/movies/movie_screen.dart';
+import '../../screens/setting/setting_screen.dart';
 import '../../screens/splash_screen/splash_screen.dart';
 
 final router = GoRouter(
+  initialLocation: RouteConstants.splash,
   routes: [
     GoRoute(
       path: RouteConstants.splash,
@@ -52,10 +55,27 @@ final router = GoRouter(
           ),
         ]),
     GoRoute(
+      path: "/${RouteConstants.setting}/:name",
+      name: RouteConstants.setting,
+      builder: (context, state) {
+        final name = state.params["name"] ?? "";
+        UserModel user =
+            UserModel(name: "default", email: "default@mail.com", id: "0");
+        if (state.extra is UserModel) {
+          user = state.extra as UserModel;
+        }
+        return SettingScreen(
+          name: name,
+          user: user,
+          query: state.queryParams["query"]!,
+        );
+      },
+    ),
+    GoRoute(
       path: "/${RouteConstants.login}",
       name: RouteConstants.login,
       builder: (context, state) => const LoginScreen(),
-    ),
+    )
   ],
   errorBuilder: (context, state) => const ErrorScreen(),
 );
