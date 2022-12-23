@@ -31,15 +31,21 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
       appBar: AppBar(
         title: Text(movie.title),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 200,
-            width: 200,
-            child: Image.network(movie.image),
-          ),
-          Text(movie.details),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 200,
+              child: Image.network(movie.image),
+            ),
+            const SizedBox(
+              height: 20,
+              width: 20,
+            ),
+            Text(movie.details),
+          ],
+        ),
       ),
     );
   }

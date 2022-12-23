@@ -31,12 +31,23 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
       appBar: AppBar(
         title: Text(song.title),
       ),
-      body: Column(
-        children: [
-          Image.network(song.image),
-          Text(song.title),
-          Text(song.artist),
-        ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Image.network(song.image),
+              const SizedBox(height: 20),
+              Text(
+                song.title,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              Text(song.artist),
+            ],
+          ),
+        ),
       ),
     );
   }
